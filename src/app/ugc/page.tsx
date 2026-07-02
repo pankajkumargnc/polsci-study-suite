@@ -108,7 +108,7 @@ export default function Ugc() {
 
             <h3 className="paper-title"><span className="hi">भारतीय संविधान एवं राजनीति (Indian Constitution &amp;
                 Politics)</span><span className="en">Indian Constitution &amp; Politics</span></h3>
-            <ol start="16">
+            <ol start={16}>
               <li>
                 <strong><span className="hi">प्रश्न: भारतीय संविधान की प्रस्तावना में 'समाजवादी' और 'धर्मनिरपेक्ष' शब्द किस
                     संशोधन द्वारा जोड़े गए?</span><span className="en">Q: By which amendment were the words 'Socialist' and
@@ -181,7 +181,7 @@ export default function Ugc() {
             <h3 className="paper-title"><span className="hi">अंतर्राष्ट्रीय संबंध एवं अंतर्राष्ट्रीय कानून (IR &amp;
                 International
                 Law)</span><span className="en">IR &amp; International Law</span></h3>
-            <ol start="26">
+            <ol start={26}>
               <li>
                 <strong><span className="hi">प्रश्न: 'पॉलिटिक्स अमंग नेशंस' (1948) के लेखक कौन हैं?</span><span
                     className="en">Q:
@@ -248,7 +248,7 @@ export default function Ugc() {
 
             <h3 className="paper-title"><span className="hi">लोक प्रशासन एवं अन्य मुद्दे (Public Admin &amp; Other
                 Issues)</span><span className="en">Public Admin &amp; Other Issues</span></h3>
-            <ol start="36">
+            <ol start={36}>
               <li>
                 <strong><span className="hi">प्रश्न: लोक प्रशासन को एक अलग विषय के रूप में स्थापित करने वाला 1887 का निबंध
                     किसने लिखा?</span><span className="en">Q: Who wrote the 1887 essay that established Public

@@ -161,7 +161,7 @@ export default function ProgressTracker() {
                   boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
                   color: textColor
                 }}
-                formatter={(value: number) => [`${value}%`, 'Completed']}
+                formatter={(value: any) => [`${value}%`, 'Completed']}
               />
               <Bar 
                 dataKey="completed" 
