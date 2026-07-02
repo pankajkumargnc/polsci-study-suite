@@ -1,0 +1,351 @@
+@import "tailwindcss";
+
+/* Language Toggling Rules */
+html[data-lang="en"] .hi { display: none !important; }
+html[data-lang="en"] .en { display: inline !important; }
+html[data-lang="hi"] .en { display: none !important; }
+html[data-lang="hi"] .hi { display: inline !important; }
+
+/* ============================================================
+   ULTRA PRO AESTHETICS — Light & Dark Mode
+   ============================================================ */
+
+/* ── Grid ── */
+.ultra-pro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* ── Card (Light Mode Default) ── */
+.ultra-pro-card {
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 20px;
+  padding: 28px;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  color: var(--text-primary, #0f172a);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.ultra-pro-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.12), 0 8px 16px rgba(0,0,0,0.08);
+  border-color: var(--primary, #4f46e5);
+}
+
+/* Shimmer effect on hover */
+.ultra-pro-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(99,102,241,0.06), transparent);
+  transform: skewX(-20deg);
+  transition: 0.6s;
+}
+
+.ultra-pro-card:hover::before {
+  left: 150%;
+}
+
+/* ── Card (Dark Mode) ── */
+html[data-theme="dark"] .ultra-pro-card {
+  background: rgba(24, 24, 27, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+html[data-theme="dark"] .ultra-pro-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15), 0 8px 16px rgba(0,0,0,0.4);
+}
+
+html[data-theme="dark"] .ultra-pro-card::before {
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+}
+
+/* ── Hero Section ── */
+.ultra-pro-hero {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  padding: 40px;
+  border-radius: 24px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.ultra-pro-hero::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255,255,255,0.1);
+  filter: blur(50px);
+  border-radius: 50%;
+  top: -100px;
+  right: -50px;
+}
+
+/* ── Icon Wrappers ── */
+.icon-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.icon-pink   { background: linear-gradient(135deg, #ec4899, #f43f5e); box-shadow: 0 8px 16px rgba(236,72,153,0.25); }
+.icon-blue   { background: linear-gradient(135deg, #3b82f6, #2563eb); box-shadow: 0 8px 16px rgba(59,130,246,0.25); }
+.icon-green  { background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 8px 16px rgba(16,185,129,0.25); }
+.icon-orange { background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 8px 16px rgba(245,158,11,0.25); }
+.icon-purple { background: linear-gradient(135deg, #8b5cf6, #6d28d9); box-shadow: 0 8px 16px rgba(139,92,246,0.25); }
+
+/* ============================================================
+   ULTIMATE PAGES AESTHETICS (Library, Current Affairs, etc.)
+   ============================================================ */
+.ultimate-page-container {
+  min-height: 100vh;
+  background: var(--surface-bg, #f8fafc);
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+html[data-theme="dark"] .ultimate-page-container {
+  background: var(--surface-bg, #0f172a);
+}
+
+.ultimate-hero {
+  padding: 60px 40px;
+  border-radius: 0 0 32px 32px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ultimate-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  mix-blend-mode: overlay;
+  z-index: -1;
+}
+
+.ultimate-hero::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  top: -150px;
+  right: -100px;
+  z-index: -1;
+  animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(20px) scale(1.05); }
+}
+
+.hero-title {
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  max-width: 600px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.search-bar {
+  transition: all 0.3s ease;
+}
+.search-bar:focus-within {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  border-color: #6366f1;
+}
+/* ============================================================
+   MOBILE RESPONSIVE — Ultra Pro Components
+   ============================================================ */
+
+/* ── Small Mobile (≤480px) ── */
+@media (max-width: 480px) {
+  .ultra-pro-hero {
+    padding: 24px 20px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .ultra-pro-hero h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .ultra-pro-hero p {
+    font-size: 0.9rem !important;
+  }
+
+  .ultra-pro-hero::after {
+    width: 150px;
+    height: 150px;
+    top: -50px;
+    right: -30px;
+  }
+
+  .ultimate-hero {
+    padding: 40px 24px;
+    border-radius: 0 0 24px 24px;
+    margin-bottom: 30px;
+  }
+  .ultimate-hero::after {
+    width: 250px;
+    height: 250px;
+    top: -80px;
+    right: -50px;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .ultra-pro-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 8px;
+  }
+
+  .ultra-pro-card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .ultra-pro-card:hover {
+    transform: none;
+  }
+
+  .icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .content-area {
+    padding: 10px !important;
+    padding-bottom: 90px !important;
+  }
+
+  .tab-pane {
+    padding: 16px 14px !important;
+    border-radius: 12px !important;
+  }
+
+  .top-header {
+    padding: 0 12px !important;
+  }
+
+  .print-btn span {
+    display: none !important;
+  }
+
+  .print-btn {
+    padding: 0 10px !important;
+    width: 40px !important;
+  }
+
+  #current-tab-title {
+    font-size: 0.95rem !important;
+  }
+}
+
+/* ── Mobile (≤768px) ── */
+@media (max-width: 768px) {
+  .ultra-pro-hero {
+    padding: 28px 24px;
+    border-radius: 18px;
+    margin-bottom: 24px;
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .ultra-pro-hero h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .ultra-pro-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding: 0 10px;
+  }
+
+  .ultra-pro-card {
+    padding: 22px;
+  }
+
+  .content-area {
+    padding: 14px !important;
+    padding-bottom: 90px !important;
+  }
+
+  .tab-pane {
+    padding: 20px 18px !important;
+  }
+
+  .top-header {
+    padding: 0 16px !important;
+  }
+
+  .print-btn span {
+    display: none !important;
+  }
+}
+
+/* ── Tablet (≤1024px) ── */
+@media (max-width: 1024px) {
+  .ultra-pro-hero {
+    padding: 32px;
+  }
+
+  .ultra-pro-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .tab-pane {
+    padding: 28px 24px !important;
+  }
+}
+
+
